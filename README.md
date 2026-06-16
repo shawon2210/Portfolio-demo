@@ -82,4 +82,4 @@ src/
 
 ## License
 
-Private project. All rights reserved.
+Private project. All rights reserved by @ShawonMolla

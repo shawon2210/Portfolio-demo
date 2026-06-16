@@ -1,5 +1,5 @@
-import { useRef, useMemo, type CSSProperties } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { useRef, useMemo, useState, type CSSProperties } from 'react'
+import { useScroll, useTransform, useMotionValueEvent } from 'framer-motion'
 
 interface AnimatedTextProps {
   text: string
@@ -17,29 +17,27 @@ export default function AnimatedText({ text, className = '', style }: AnimatedTe
 
   const chars = useMemo(() => text.split(''), [text])
 
-  const opacities = useMemo(
-    () =>
-      chars.map((_, i) => {
-        const start = i / chars.length
-        const end = start + 1 / chars.length
-        return useTransform(scrollYProgress, [0, start, end, 1], [0.2, 0.2, 1, 1])
-      }),
-    [chars, scrollYProgress],
-  )
+  const rawProgress = useTransform(scrollYProgress, [0, 1], [0, 1])
+  const [progress, setProgress] = useState(0)
+
+  useMotionValueEvent(rawProgress, 'change', (v) => setProgress(v as number))
 
   return (
     <p ref={ref} className={className} style={style} aria-label={text}>
-      {chars.map((char, i) => (
-        <span key={i} className="relative inline">
-          <span className="invisible">{char}</span>
-            <motion.span
-              className="absolute left-0 top-0"
-              style={{ opacity: opacities[i] }}
-            >
+      {chars.map((char, i) => {
+        const start = i / chars.length
+        const end = start + 1 / chars.length
+        const opacity = progress <= start ? 0.2 : progress >= end ? 1 : 0.2 + (progress - start) / (end - start) * 0.8
+
+        return (
+          <span key={i} className="relative inline">
+            <span className="invisible">{char}</span>
+            <span className="absolute left-0 top-0" style={{ opacity }}>
               {char}
-            </motion.span>
-        </span>
-      ))}
+            </span>
+          </span>
+        )
+      })}
     </p>
   )
 }
