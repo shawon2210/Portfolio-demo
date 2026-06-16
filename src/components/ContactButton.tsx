@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 export default function ContactButton() {
   return (
     <motion.button
-      className="rounded-full px-8 py-3 sm:px-10 sm:py-3.5 md:px-12 md:py-4 text-xs sm:text-sm md:text-base font-medium uppercase tracking-widest text-white outline outline-2 outline-white outline-offset-[-3px]"
+      className="rounded-full px-5 py-2 text-[10px] font-medium uppercase tracking-widest text-white outline outline-2 outline-white outline-offset-[-3px] transition-all duration-200 sm:px-8 sm:py-3 sm:text-xs md:px-10 md:py-3.5 md:text-sm lg:px-12 lg:py-4 lg:text-base"
       style={{
         background:
           'linear-gradient(123deg, #18011F 7%, #B600A8 37%, #7621B0 72%, #BE4C00 100%)',

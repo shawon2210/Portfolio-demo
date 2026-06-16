@@ -52,9 +52,9 @@ function MarqueeRow({ images, direction }: { images: string[]; direction: 'right
       : -(offset - 200)
 
   return (
-    <div ref={ref} className="flex gap-3">
+    <div ref={ref} className="flex gap-2 sm:gap-3">
       <motion.div
-        className="flex gap-3"
+        className="flex gap-2 sm:gap-3"
         style={{ x, willChange: 'transform' }}
       >
         {tripled.map((src, i) => (
@@ -63,7 +63,7 @@ function MarqueeRow({ images, direction }: { images: string[]; direction: 'right
             src={src}
             alt=""
             loading="lazy"
-            className="h-[270px] w-[420px] rounded-2xl object-cover"
+            className="h-[140px] w-[220px] rounded-xl object-cover sm:h-[200px] sm:w-[320px] md:h-[260px] md:w-[400px]"
           />
         ))}
       </motion.div>
@@ -73,8 +73,8 @@ function MarqueeRow({ images, direction }: { images: string[]; direction: 'right
 
 export default function MarqueeSection() {
   return (
-    <section className="bg-[#0C0C0C] pt-24 sm:pt-32 md:pt-40 pb-10">
-      <div className="flex flex-col gap-3">
+    <section className="bg-[#0C0C0C] pt-16 pb-6 sm:pt-28 sm:pb-8 md:pt-36 md:pb-10">
+      <div className="flex flex-col gap-2 sm:gap-3">
         <MarqueeRow images={ROW1} direction="right" />
         <MarqueeRow images={ROW2} direction="left" />
       </div>

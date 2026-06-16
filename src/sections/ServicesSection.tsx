@@ -19,7 +19,7 @@ const services = [
   {
     num: '04',
     name: 'Branding',
-    desc: 'Crafting cohesive visual identities -- from logos to full brand systems -- that communicate a clear and memorable presence.',
+    desc: 'Crafting cohesive visual identities — from logos to full brand systems — that communicate a clear and memorable presence.',
   },
   {
     num: '05',
@@ -30,10 +30,10 @@ const services = [
 
 export default function ServicesSection() {
   return (
-    <section className="rounded-t-[40px] bg-white px-5 py-20 sm:rounded-t-[50px] sm:px-8 sm:py-24 md:rounded-t-[60px] md:px-10 md:py-32">
+    <section className="rounded-t-[30px] bg-white px-4 py-14 sm:rounded-t-[50px] sm:px-8 sm:py-24 md:rounded-t-[60px] md:px-10 md:py-32">
       <h2
-        className="mb-16 text-center font-black uppercase text-[#0C0C0C] sm:mb-20 md:mb-28"
-        style={{ fontSize: 'clamp(3rem, 12vw, 160px)' }}
+        className="mb-10 text-center font-black uppercase text-[#0C0C0C] sm:mb-20 md:mb-28"
+        style={{ fontSize: 'clamp(2.5rem, 11vw, 10rem)' }}
       >
         Services
       </h2>
@@ -42,29 +42,28 @@ export default function ServicesSection() {
         {services.map((service, i) => (
           <FadeIn
             key={service.num}
-            delay={i * 0.1}
-            y={20}
+            delay={i * 0.08}
+            y={16}
             as="div"
-            className="border-b border-[rgba(12,12,12,0.15)] py-8 first:border-t sm:py-10 md:py-12"
-            style={{ borderBottomColor: 'rgba(12, 12, 12, 0.15)' }}
+            className="border-b border-[rgba(12,12,12,0.12)] py-6 first:border-t sm:py-8 md:py-10"
           >
-            <div className="flex flex-col gap-4 sm:flex-row sm:gap-8 md:gap-12">
+            <div className="flex flex-col gap-3 sm:flex-row sm:gap-6 md:gap-10">
               <span
-                className="font-black text-[#0C0C0C]"
-                style={{ fontSize: 'clamp(3rem, 10vw, 140px)' }}
+                className="font-black text-[#0C0C0C] leading-none shrink-0"
+                style={{ fontSize: 'clamp(2.2rem, 8vw, 5.5rem)' }}
               >
                 {service.num}
               </span>
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-1.5">
                 <span
-                  className="font-medium uppercase text-[#0C0C0C]"
-                  style={{ fontSize: 'clamp(1rem, 2.2vw, 2.1rem)' }}
+                  className="font-semibold uppercase text-[#0C0C0C]"
+                  style={{ fontSize: 'clamp(0.95rem, 2vw, 1.8rem)' }}
                 >
                   {service.name}
                 </span>
                 <p
-                  className="max-w-2xl font-light leading-relaxed text-[#0C0C0C]/60"
-                  style={{ fontSize: 'clamp(0.85rem, 1.6vw, 1.25rem)' }}
+                  className="max-w-2xl font-light leading-relaxed text-[#0C0C0C]/55"
+                  style={{ fontSize: 'clamp(0.8rem, 1.4vw, 1.1rem)' }}
                 >
                   {service.desc}
                 </p>
